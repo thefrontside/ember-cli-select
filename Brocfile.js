@@ -17,11 +17,11 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
-var mergeTrees = require('brocolli-merge-trees');
+var mergeTrees = require('broccoli-merge-trees');
 
 var appTree = mergeTrees(['app', 'app-addon'], {overwrite: true});
 
-var EmberApp = require('ember-cli/lib/brocolli/ember-app');
+var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 var app = new EmberApp({
   trees: {
