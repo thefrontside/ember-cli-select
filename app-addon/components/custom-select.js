@@ -1,7 +1,5 @@
 import Ember from "ember";
 
-var assert = Ember.assert;
-
 /**
  * Wraps a native <select> element so that it can be object and
  * binding aware. It is used in conjuction with the
@@ -53,28 +51,29 @@ export default Ember.Component.extend({
    * @property options
    */
   options: Ember.computed(function() {
-    return Ember.A()
+    return Ember.A();
   }),
 
   /**
    * @private
    */
   setup: (function() {
+    /* jshint unused:false */
     this.$().on('change', Ember.run.bind(this, function(e) {
       var option = this.get('options').find(function(option) {
-        return option.$().is(':selected')
-      })
-      this.sendAction('action', option.get('value'), this)
-    }))
+        return option.$().is(':selected');
+      });
+      this.sendAction('action', option.get('value'), this);
+    }));
   }).on('didInsertElement'),
 
   /**
    * @private
    */
   teardown: (function() {
-    this.$().off('change')
+    this.$().off('change');
     //might be overkill, but make sure options can get gc'd
-    this.get('options').clear()
+    this.get('options').clear();
   }).on('willDestroyElement'),
 
   /**
@@ -90,4 +89,4 @@ export default Ember.Component.extend({
   unregisterOption: function(option) {
     this.get('options').removeObject(option);
   }
-})
+});
