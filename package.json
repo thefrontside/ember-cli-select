@@ -1,7 +1,7 @@
 {
   "name": "ember-cli-select",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "directories": {
     "doc": "doc",
     "test": "tests"
