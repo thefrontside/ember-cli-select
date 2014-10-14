@@ -1,5 +1,9 @@
 Ember select testing
-{{#custom-select value=value}}
+{{#custom-select value=value action="selectOption"}}
   {{#custom-option value="fred"}}Fred Flintstone{{/custom-option}}
   {{#custom-option value="bob"}}Bob Newhart{{/custom-option}}
 {{/custom-select}}
+
+<div class="spec-value">{{value}}</div>
+<div class="spec-counter">{{counter}}</div>
+<button {{action "change"}} class="change-value">change value</button>
