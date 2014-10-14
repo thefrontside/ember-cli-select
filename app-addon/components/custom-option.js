@@ -1,4 +1,5 @@
 import Ember from "ember";
+import CustomSelectComponent from "./custom-select";
 
 var assert = Ember.assert;
 
@@ -36,23 +37,23 @@ export default Ember.Component.extend({
    * @type Boolean
    */
   selected: Ember.computed('select.value', function() {
-    return this.get('value') == this.get('select.value')
+    return this.get('value') === this.get('select.value');
   }),
 
   /**
    * @private
    */
   registerWithSelect: (function() {
-    var select = this.nearestOfType(App.CustomSelectComponent);
-    assert("custom-option component declared without enclosing custom-select", !!select)
-    this.set('select', select)
-    select.registerOption(this)
+    var select = this.nearestOfType(CustomSelectComponent);
+    assert("custom-option component declared without enclosing custom-select", !!select);
+    this.set('select', select);
+    select.registerOption(this);
   }).on('didInsertElement'),
 
   /**
    * @private
    */
   unregisterWithSelect: (function() {
-    this.get('select').unregisterOption(this)
+    this.get('select').unregisterOption(this);
   }).on('willDestroyElement')
-})
+});
