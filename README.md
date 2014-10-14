@@ -1,45 +1,23 @@
-# App
+# Ember CLI Custom Select
 
-This README outlines the details of collaborating on this Ember application.
+This is an addon for ember-cli to give you a straightforward easy to use select
+component. ember-select does a lot of magic in the background, so we built this
+component to clear up some of that magic and make everything very simple and
+straight forward. It's a simple wrapper for native select objects to make them
+binding aware. Whenever `value` changes, it updates the component.
+Whenever you select a new option, it fires off `action`.
 
-A short introduction of this app could easily go here.
-
-## Prerequisites
-
-You will need the following things properly installed on your computer.
-
-* [Git](http://git-scm.com/)
-* [Node.js](http://nodejs.org/) (with NPM) and [Bower](http://bower.io/)
+Example:
+```javascript
+{{#custom-select value="bob" action="selectPerson"}}
+  {{#custom-option value="fred"}}Fred Flintstone{{/custom-option}}
+  {{#custom-option value="bob"}}Bob Newhart{{/custom-option}}
+{{/custom-select}}
+```
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* change into the new directory
-* `npm install`
-* `bower install`
-
-## Running / Development
-
-* `ember server`
-* Visit your app at http://localhost:4200.
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
+* `npm install ember-cli-select`
 
 ## Further Reading / Useful Links
 
